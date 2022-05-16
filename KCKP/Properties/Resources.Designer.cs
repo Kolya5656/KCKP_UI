@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KCKP.Properties
+namespace KCKP_UI.Properties
 {
 
 
