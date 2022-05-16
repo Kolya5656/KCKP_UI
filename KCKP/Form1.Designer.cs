@@ -202,11 +202,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(357, 16);
+            this.label5.Location = new System.Drawing.Point(349, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 17);
+            this.label5.Size = new System.Drawing.Size(158, 17);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Итоговый результат";
+            this.label5.Text = "Значение переменных";
             // 
             // label4
             // 
@@ -214,9 +214,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(128, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.Size = new System.Drawing.Size(94, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Приближения";
+            this.label4.Text = "Подстановка";
             // 
             // dataGridViewAns
             // 

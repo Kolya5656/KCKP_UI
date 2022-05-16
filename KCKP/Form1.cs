@@ -35,7 +35,7 @@ namespace KCKP_UI
             size = Convert.ToInt32(matrixSize.Text);
             dataGridViewA.ColumnCount = size;
             dataGridViewA.RowCount = size;
-            dataGridViewApx.ColumnCount = size;
+            dataGridViewApx.ColumnCount = size + 1;
             dataGridViewApx.RowCount = size;
             dataGridViewB.ColumnCount = 1;
             dataGridViewB.RowCount = size;
@@ -99,16 +99,16 @@ namespace KCKP_UI
 
         private void dataGridViewAns_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (e.FormattedValue.ToString() == string.Empty)
-                return;
-            else
-                    if (!int.TryParse(e.FormattedValue.ToString(), out int res))
-            {
-                dataGridViewApx.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 1;
-                MessageBox.Show("Введите числовое значение");
-                e.Cancel = true;
-                return;
-            }
+            //if (e.FormattedValue.ToString() == string.Empty)
+            //    return;
+            //else
+            //        if (!int.TryParse(e.FormattedValue.ToString(), out int res))
+            //{
+            //    dataGridViewApx.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 1;
+            //    MessageBox.Show("Введите числовое значение");
+            //    e.Cancel = true;
+            //    return;
+            //}
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace KCKP_UI
             matrixA = new double[size, size];
             matrixB = new double[size];
             matrixAnsw = new double[size];
-            matrixApx = new double[size, size];
+            matrixApx = new double[size + 1, size];
             SetVariables();
             gaussZeidel = new GaussZeidel(matrixA, matrixB, size);
             if(gaussZeidel.DiagonallyDominant() == true)
@@ -129,6 +129,8 @@ namespace KCKP_UI
                 gaussZeidel.Algoritm();
                 matrixAnsw = gaussZeidel.Roots;
                 SetAnswer();
+                SetNameAns();
+                Subs();
             }
             else
             {
@@ -145,13 +147,13 @@ namespace KCKP_UI
             {
                 for (int j = 0; j < size; j++)
                 {
-                    matrixA[j, i] = Convert.ToDouble(dataGridViewA[j, i].Value);                    
+                    matrixA[i, j] = Convert.ToDouble(dataGridViewA[j, i].Value);                    
                 }
             }
 
             for (int i = 0; i < size; i++)
             {
-                matrixB[i] = Convert.ToDouble(dataGridViewB[1,i].Value);
+                matrixB[i] = Convert.ToDouble(dataGridViewB[0,i].Value);
             }
         }
         private void SetAnswer()
@@ -159,6 +161,27 @@ namespace KCKP_UI
             for (int i = 0; i < size; i++)
             {
                 dataGridViewAns[i, 0].Value = matrixAnsw[i];
+            }
+        }
+        private void SetNameAns()
+        {
+            for (int i = 0; i <= dataGridViewAns.Rows.Count; i++)
+            {
+                dataGridViewAns.Columns[i].HeaderCell.Value = $"X{i+1}";
+            }
+        }
+        private void Subs()
+        {
+            for (int i = 0; i+1 < dataGridViewApx.ColumnCount; i++)
+            {
+                double summ = 0;
+                for (int j = 0; j < dataGridViewApx.RowCount; j++)
+                {
+                    double x = matrixAnsw[j]*matrixA[i,j];
+                    dataGridViewApx[j, i].Value = (x.ToString("+#;-#;0"));
+                    summ += x;
+                }
+                dataGridViewApx[3,i].Value = summ;
             }
         }
     }

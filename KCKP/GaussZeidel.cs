@@ -27,7 +27,7 @@ namespace KCKP_UI
 			
 			this.Value = value;
 			this.n = n;
-			Roots = new double[value.Rank];
+			Roots = new double[value.Length];
 		}
 
 		public bool DiagonallyDominant()
