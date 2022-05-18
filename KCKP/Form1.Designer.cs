@@ -45,6 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridViewAns = new System.Windows.Forms.DataGridView();
             this.dataGridViewApx = new System.Windows.Forms.DataGridView();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewB)).BeginInit();
@@ -102,6 +104,7 @@
             this.loadBtn.TabIndex = 3;
             this.loadBtn.Text = "Загрузить";
             this.loadBtn.UseVisualStyleBackColor = true;
+            this.loadBtn.Click += new System.EventHandler(this.loadBtn_Click);
             // 
             // saveBtn
             // 
@@ -111,6 +114,7 @@
             this.saveBtn.TabIndex = 2;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // clearBtn
             // 
@@ -173,7 +177,7 @@
             this.dataGridViewB.Name = "dataGridViewB";
             this.dataGridViewB.Size = new System.Drawing.Size(149, 150);
             this.dataGridViewB.TabIndex = 1;
-            this.dataGridViewB.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewB_CellValidating);
+            this.dataGridViewB.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewB_EditingControlShowing);
             // 
             // dataGridViewA
             // 
@@ -184,7 +188,7 @@
             this.dataGridViewA.Name = "dataGridViewA";
             this.dataGridViewA.Size = new System.Drawing.Size(342, 150);
             this.dataGridViewA.TabIndex = 0;
-            this.dataGridViewA.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewA_CellValidating);
+            this.dataGridViewA.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewA_EditingControlShowing);
             // 
             // groupBox3
             // 
@@ -229,7 +233,6 @@
             this.dataGridViewAns.ReadOnly = true;
             this.dataGridViewAns.Size = new System.Drawing.Size(149, 190);
             this.dataGridViewAns.TabIndex = 1;
-            this.dataGridViewAns.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewAns_CellValidating);
             // 
             // dataGridViewApx
             // 
@@ -241,7 +244,10 @@
             this.dataGridViewApx.ReadOnly = true;
             this.dataGridViewApx.Size = new System.Drawing.Size(342, 190);
             this.dataGridViewApx.TabIndex = 0;
-            this.dataGridViewApx.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewApx_CellValidating);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -287,6 +293,8 @@
 		private System.Windows.Forms.DataGridView dataGridViewAns;
 		private System.Windows.Forms.DataGridView dataGridViewApx;
 		private System.Windows.Forms.Label label5;
-	}
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+    }
 }
 
